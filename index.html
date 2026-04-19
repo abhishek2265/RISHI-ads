@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RISHI BHAI 2019 | Join Now</title>
+    <title>RISHI BHAI 2019 | Official Channel</title>
     
     <script>
     !function(f,b,e,v,n,t,s)
@@ -20,11 +20,12 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1308487147820750&ev=PageView&noscript=1"
     /></noscript>
+    
     <style>
         :root {
-            --tg-green: #24A1DE; /* Telegram Blue */
+            --tg-blue: #24A1DE;
             --dark-bg: #0f172a;
-            --accent: #00ff88; /* Winning Green */
+            --accent: #00ff88; 
         }
 
         body {
@@ -38,67 +39,114 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            overflow: hidden;
         }
 
         .container {
-            width: 90%;
-            max-width: 400px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            width: 85%;
+            max-width: 380px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            margin-bottom: 20px;
-            border: 3px solid var(--accent);
+            border: 2px solid var(--accent);
             object-fit: cover;
+            display: block;
         }
 
-        h1 { font-size: 24px; margin-bottom: 10px; }
-        p { color: #94a3b8; line-height: 1.5; margin-bottom: 30px; }
+        /* Pulse effect for the logo */
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        h1 { font-size: 26px; margin: 0 0 10px 0; letter-spacing: 1px; }
+        p { color: #94a3b8; font-size: 14px; line-height: 1.4; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
 
         .btn {
             display: block;
-            background-color: var(--tg-green);
+            background: linear-gradient(135deg, #24A1DE 0%, #1c81b3 100%);
             color: white;
             text-decoration: none;
-            padding: 18px;
-            border-radius: 12px;
-            font-weight: bold;
+            padding: 20px;
+            border-radius: 15px;
+            font-weight: 800;
             font-size: 18px;
-            transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 15px rgba(36, 161, 222, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(36, 161, 222, 0.3);
+            text-transform: uppercase;
+            border: none;
+            width: 100%;
+            cursor: pointer;
         }
 
-        .btn:active { transform: scale(0.95); }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(36, 161, 222, 0.5);
+        }
+
+        .btn:active { transform: scale(0.98); }
 
         .counter {
-            margin-top: 20px;
-            font-size: 14px;
+            margin-top: 25px;
+            font-size: 13px;
             color: var(--accent);
             font-weight: bold;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://i.postimg.cc/xd44msjv/Whats-App-Image-2026-04-14-at-12-30-19-PM.jpg" class="logo" alt="Rishi Bhai Logo">
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/xd44msjv/Whats-App-Image-2026-04-14-at-12-30-19-PM.jpg" class="logo" alt="Rishi Bhai Logo">
+        </div>
         
-        <h1> RISHI BHAI 2019 </h1>
-        <p> DAILY TENNIS & CRICKET MATCH ANALYSIS | DATA-DRIVEN INSIGHTS </p>
+        <h1>RISHI BHAI 2019</h1>
+        <p>Expert Sports Data & <br>Match Analytics</p>
         
-        <a href="https://t.me/+kusD4n9grMc0YTBl" class="btn" onclick="fbq('track', 'Subscribe');">
-            JOIN TELEGRAM FOR FREE
-        </a>
+        <button class="btn" onclick="handleJoin()">
+            JOIN 21,000+ WINNERS (FREE)
+        </button>
 
-        <div class="counter"> JOIN OUR SPORTS COMMUNITY </div>
+        <div class="counter">● LIVE SPORTS COMMUNITY</div>
     </div>
+
+    <script>
+    function handleJoin() {
+        // 1. Fire Meta Pixel Event
+        fbq('track', 'Subscribe');
+
+        // 2. Wait 400ms to ensure tracking finishes, then redirect
+        setTimeout(function() {
+            window.location.href = "https://t.me/+kusD4n9grMc0YTBl";
+        }, 400);
+    }
+    </script>
 
 </body>
 </html>
