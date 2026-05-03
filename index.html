@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RISHI BHAI 2019 | Official Channel</title>
     
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -14,12 +15,15 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1308487147820750');
+    
+    fbq('init', '1996932137699348'); // Updated Pixel ID
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1308487147820750&ev=PageView&noscript=1"
-    /></noscript>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=1996932137699348&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
     
     <style>
         :root {
@@ -68,7 +72,6 @@
             display: block;
         }
 
-        /* Pulse effect for the logo */
         .logo-container::after {
             content: '';
             position: absolute;
@@ -138,10 +141,10 @@
 
     <script>
     function handleJoin() {
-        // 1. Fire Meta Pixel Event
+        // Fires Subscribe event for the new Pixel
         fbq('track', 'Subscribe');
 
-        // 2. Wait 400ms to ensure tracking finishes, then redirect
+        // Wait 400ms to ensure tracking finishes, then redirect
         setTimeout(function() {
             window.location.href = "https://t.me/+kusD4n9grMc0YTBl";
         }, 400);
