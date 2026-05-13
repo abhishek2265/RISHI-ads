@@ -15,7 +15,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1526139559074617'); 
+    fbq('init', '1526139559074617'); // Your Pixel ID
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -45,7 +45,7 @@
             overflow-x: hidden;
         }
 
-        /* RUNNING BANNER STYLING */
+        /* RUNNING BANNER */
         .running-banner {
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
@@ -86,7 +86,7 @@
             box-shadow: 0 30px 70px rgba(0,0,0,1);
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 80px; /* Space for the fixed banner */
+            margin-top: 80px;
             margin-bottom: 40px;
         }
 
@@ -227,10 +227,9 @@
 </head>
 <body>
 
-    <!-- RUNNING BANNER -->
     <div class="running-banner">
         <div class="marquee-content">
-            🔥 ROME MASTERS: 9/10 PASS • ATP & WTA LIVE ALERTS • NO PAID FEES • JOIN THE KING OF TENNIS NOW • 🔥 ROME MASTERS: 9/10 PASS • ATP & WTA LIVE ALERTS
+            🔥 ROME MASTERS LIVE ALERTS • ATP & WTA DATA STREAMS • ELITE ANALYSIS • 🔥 ROME MASTERS LIVE ALERTS • ATP & WTA DATA STREAMS
         </div>
     </div>
 
@@ -269,9 +268,18 @@
         </div>
 
         <script>
+            // Improved logic to prevent double-counting
+            let eventSent = false;
+
             function trackJoin() {
-                fbq('track', 'Lead'); 
-                fbq('track', 'Subscribe', { value: 1.00, currency: 'USD' });
+                if (!eventSent) {
+                    fbq('track', 'Subscribe', { 
+                        value: 1.00, 
+                        currency: 'USD' 
+                    });
+                    eventSent = true; 
+                    console.log('Subscribe event sent successfully.');
+                }
             }
         </script>
 
