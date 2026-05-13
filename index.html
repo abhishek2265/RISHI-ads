@@ -268,18 +268,18 @@
         </div>
 
         <script>
-            // FINAL CLEAN TRACKING LOGIC
+            // Anti-Double Counting Logic
             let hasSentEvent = false;
 
             function trackJoin() {
                 if (!hasSentEvent) {
-                    // Send ONLY Subscribe event with manual setup
+                    // Send ONLY Subscribe event
                     fbq('track', 'Subscribe', { 
                         value: 1.00, 
                         currency: 'USD' 
                     });
                     hasSentEvent = true; 
-                    console.log('Single Subscribe Event Sent.');
+                    console.log('Subscribe event successfully sent once.');
                 }
             }
         </script>
