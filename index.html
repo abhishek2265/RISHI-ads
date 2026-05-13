@@ -45,6 +45,7 @@
             overflow-x: hidden;
         }
 
+        /* RUNNING BANNER */
         .running-banner {
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
@@ -267,16 +268,24 @@
         </div>
 
         <script>
-            // Rename to CompleteRegistration to avoid conflict with the Setup Tool
-            let trackingDone = false;
+            // Anti-Double Counting + Unique ID logic
+            let hasSentEvent = false;
+
+            function generateEventID() {
+                return 'mtk_' + Math.random().toString(36).substr(2, 9);
+            }
 
             function trackJoin() {
-                if (!trackingDone) {
-                    fbq('track', 'CompleteRegistration', { 
+                if (!hasSentEvent) {
+                    const eventID = generateEventID();
+                    // Fires the Subscribe event manually
+                    fbq('track', 'Subscribe', { 
                         value: 1.00, 
                         currency: 'USD' 
-                    });
-                    trackingDone = true; 
+                    }, { eventID: eventID });
+                    
+                    hasSentEvent = true; 
+                    console.log('Manual Subscribe event sent.');
                 }
             }
         </script>
