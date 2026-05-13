@@ -15,75 +15,124 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID'); 
+    fbq('init', '1526139559074617'); 
     fbq('track', 'PageView');
     </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1526139559074617&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <style>
         :root {
             --bronze: #cd7f32;
+            --bronze-glow: rgba(205, 127, 50, 0.6);
             --midnight: #020617;
-            --glass-blue: rgba(15, 23, 42, 0.95);
+            --glass-blue: rgba(6, 10, 25, 0.96);
         }
 
         body {
             margin: 0;
             padding: 0;
             background: var(--midnight);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             color: #f8fafc;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            background-image: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
             overflow-x: hidden;
+        }
+
+        /* RUNNING BANNER STYLING */
+        .running-banner {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid var(--bronze);
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: var(--bronze);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
         }
 
         .container {
             background: var(--glass-blue);
-            width: 90%;
-            max-width: 420px;
-            padding: 45px 25px;
+            width: 92%;
+            max-width: 440px;
+            padding: 45px 20px;
             border-radius: 40px;
-            border: 1px solid rgba(205, 127, 50, 0.25);
+            position: relative;
             text-align: center;
             backdrop-filter: blur(25px);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+            box-shadow: 0 30px 70px rgba(0,0,0,1);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 80px; /* Space for the fixed banner */
+            margin-bottom: 40px;
         }
 
-        /* CIRCULAR LOGO STYLING */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, transparent, var(--bronze), transparent);
+            animation: rotate 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+
+        .inner-bg {
+            position: absolute;
+            inset: 2px;
+            background: var(--glass-blue);
+            border-radius: 38px;
+            z-index: -1;
+        }
+
         .logo-wrapper {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 25px;
-            position: relative;
+            width: 175px;
+            height: 175px;
+            margin: 0 auto 15px;
         }
 
         .logo-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the phoenix is centered */
-            border-radius: 50%; /* Makes it circular */
-            border: 3px solid var(--bronze);
-            box-shadow: 0 0 20px rgba(205, 127, 50, 0.4);
-        }
-
-        .label-text {
-            font-size: 0.7rem;
-            color: var(--bronze);
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-weight: 800;
-            margin-bottom: 15px;
+            object-fit: cover; 
+            border-radius: 50%;
+            border: 2px solid var(--bronze);
+            box-shadow: 0 0 25px var(--bronze-glow);
         }
 
         h1 {
             font-family: 'Impact', sans-serif;
             font-size: 3.2rem;
             margin: 0;
-            letter-spacing: 2px;
-            background: linear-gradient(to bottom, #ffffff 40%, #cd7f32 100%);
+            letter-spacing: 1px;
+            background: linear-gradient(to bottom, #ffffff 30%, #cd7f32 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
@@ -91,38 +140,42 @@
 
         .sub-brand {
             color: #ffffff;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 900;
             margin-top: -5px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             text-transform: uppercase;
         }
 
-        .bio-text {
+        .bio-description {
             color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 35px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            padding: 0 10px;
         }
 
-        .feature-grid {
+        .tennis-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 35px;
+            padding: 0 5px;
         }
 
-        .grid-tag {
-            background: rgba(30, 58, 138, 0.2);
-            border: 1px solid rgba(205, 127, 50, 0.15);
-            padding: 14px;
+        .grid-col {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(205, 127, 50, 0.2);
+            padding: 15px 4px;
             border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #e2e8f0;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .icon { font-size: 1.3rem; margin-bottom: 6px; display: block; }
+        .col-text { font-size: 0.6rem; font-weight: 800; color: #cbd5e1; text-transform: uppercase; line-height: 1.2; }
 
         .cta-btn {
+            position: relative;
             display: block;
             background: linear-gradient(135deg, #cd7f32, #8b4513);
             color: white;
@@ -132,69 +185,102 @@
             font-weight: 900;
             font-size: 1.3rem;
             text-transform: uppercase;
-            box-shadow: 0 15px 30px rgba(139, 69, 19, 0.5);
+            box-shadow: 0 15px 30px rgba(139, 69, 19, 0.6);
+            overflow: hidden;
             transition: 0.3s;
         }
 
-        .cta-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(205, 127, 50, 0.6);
+        .cta-btn::after {
+            content: "";
+            position: absolute;
+            top: -50%; left: -60%; width: 20%; height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+            animation: shimmer 3s infinite;
         }
+
+        @keyframes shimmer { 100% { left: 150%; } }
 
         .footer-sec {
             margin-top: 30px;
             font-size: 0.75rem;
-            color: #475569;
+            color: #64748b;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .live-dot {
-            height: 8px; width: 8px;
+            height: 9px; width: 9px;
             background: #22c55e;
             border-radius: 50%;
-            box-shadow: 0 0 10px #22c55e;
-            animation: pulse-green 2s infinite;
+            box-shadow: 0 0 12px #22c55e;
+            animation: pulse-green 1.5s infinite;
         }
 
         @keyframes pulse-green {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
         }
     </style>
 </head>
 <body>
 
+    <!-- RUNNING BANNER -->
+    <div class="running-banner">
+        <div class="marquee-content">
+            🔥 ROME MASTERS: 9/10 PASS • ATP & WTA LIVE ALERTS • NO PAID FEES • JOIN THE KING OF TENNIS NOW • 🔥 ROME MASTERS: 9/10 PASS • ATP & WTA LIVE ALERTS
+        </div>
+    </div>
+
     <div class="container">
+        <div class="inner-bg"></div>
         
         <div class="logo-wrapper">
-            <!-- Circular image container -->
             <img src="https://i.postimg.cc/y8MMWpy1/Whats-App-Image-2026-05-12-at-9-24-27-PM.jpg" alt="Murali Tennis King" class="logo-img">
         </div>
         
         <h1>MURALI</h1>
         <div class="sub-brand">Tennis King</div>
 
-        <p class="bio-text">
-            Professional ATP & WTA tour evaluation. High-frequency H2H analysis and real-time coverage for the elite season.
+        <p class="bio-description">
+            The Phoenix of Tennis Analytics. Access elite ATP/WTA tour evaluation, 
+            professional H2H analysis, and real-time coverage for the major season.
         </p>
 
-        <div class="feature-grid">
-            <div class="grid-tag">🎾 ATP / WTA</div>
-            <div class="grid-tag">📊 H2H Data</div>
-            <div class="grid-tag">⚡ Live Alerts</div>
-            <div class="grid-tag">🏆 Major Events</div>
+        <div class="tennis-grid">
+            <div class="grid-col">
+                <span class="icon">🎾</span>
+                <span class="col-text">ATP/WTA<br>Tour</span>
+            </div>
+            <div class="grid-col">
+                <span class="icon">📊</span>
+                <span class="col-text">H2H<br>Analysis</span>
+            </div>
+            <div class="grid-col">
+                <span class="icon">⚡</span>
+                <span class="col-text">Live<br>Streams</span>
+            </div>
+            <div class="grid-col">
+                <span class="icon">🏆</span>
+                <span class="col-text">Major<br>Events</span>
+            </div>
         </div>
 
-        <a href="https://t.me/YOUR_TELEGRAM_LINK" onclick="fbq('track', 'Lead');" class="cta-btn">
-            JOIN 35,000+ MEMBERS
+        <script>
+            function trackJoin() {
+                fbq('track', 'Lead'); 
+                fbq('track', 'Subscribe', { value: 1.00, currency: 'USD' });
+            }
+        </script>
+
+        <a href="https://t.me/+wK9gc-MAkHE0ZWI1" onclick="trackJoin()" class="cta-btn">
+            JOIN 35000+ MEMBERS
         </a>
 
         <div class="footer-sec">
-            <span class="live-dot"></span> Professional Sports Coverage • 18+ Only
+            <span class="live-dot"></span> Analytical Sports Coverage • 18+ Only
         </div>
     </div>
 
