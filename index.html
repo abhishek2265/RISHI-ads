@@ -16,7 +16,7 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1526139559074617'); // Your Pixel ID
-    fbq('track', 'PageView');
+    fbq('track', 'PageView'); //
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1526139559074617&ev=PageView&noscript=1"
@@ -45,7 +45,6 @@
             overflow-x: hidden;
         }
 
-        /* RUNNING BANNER */
         .running-banner {
             width: 100%;
             background: rgba(0, 0, 0, 0.8);
@@ -268,18 +267,16 @@
         </div>
 
         <script>
-            // Anti-Double Counting Logic
-            let hasSentEvent = false;
+            let trackingDone = false;
 
             function trackJoin() {
-                if (!hasSentEvent) {
-                    // Send ONLY Subscribe event
-                    fbq('track', 'Subscribe', { 
+                if (!trackingDone) {
+                    // Unique name to avoid conflict with Event Setup Tool
+                    fbq('track', 'CompleteRegistration', { 
                         value: 1.00, 
                         currency: 'USD' 
                     });
-                    hasSentEvent = true; 
-                    console.log('Subscribe event successfully sent once.');
+                    trackingDone = true; 
                 }
             }
         </script>
